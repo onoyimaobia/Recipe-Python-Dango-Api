@@ -1,0 +1,23 @@
+# Use Docker Compose file format version 3.13 (note: 3.13 does not exist, you should use "3.8" or "3.9")
+version: "3.9"
+
+services:
+  # Define a service named 'app'
+  app:
+    # Build the Docker image from the current directory (where Dockerfile is located)
+    build:
+      context: .
+      args:
+        - DEV=true
+    
+    # Map port 8000 inside the container to port 8000 on your host machine
+    ports:
+      - "8000:8000"
+    
+    # Mount the local 'app' directory to the container's '/app' directory
+    volumes:
+      - ./app:/app
+    
+    # Run the Django development server inside the container
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"

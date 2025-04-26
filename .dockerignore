@@ -1,0 +1,28 @@
+# add a list of files that will be excluded in the docker image
+.git
+.gitignore
+
+# Docker
+.docker
+
+# Python
+# Ignore Python bytecode cache directory in app/
+app/__pycache__/
+
+# Ignore __pycache__ in app's first-level subdirectories
+app/*/__pycache__/
+
+# Ignore __pycache__ two levels deep inside app/
+app/*/*/__pycache__/
+
+# Ignore __pycache__ three levels deep inside app/
+app/*/*/*/__pycache__/
+
+# Ignore .env directory (environment settings)
+.env/
+
+# Ignore .venv virtual environment
+.venv/
+
+# Ignore venv virtual environment
+venv/
